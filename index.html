@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="./assets/img/favicon.ico"
+      type="image/x-icon" />
+    <link rel="stylesheet" href="./assets/style/normalize.css" />
+    <link rel="stylesheet" href="./assets/style/main.css" />
+    <title>Prostone</title>
+  </head>
+  <body>
+
+
+    <!-- TEL BTN -->
+
+    <div class="tel-btn">
+      <svg
+        width="60"
+        height="60"
+        viewBox="0 0 60 60"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <circle cx="30" cy="30" r="30" fill="#FFC700" />
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M23.1795 27.6363C23.1795 27.6363 28.0743 28.6842 26.5125 24.5784C24.9516 20.4723 24.3984 15.876 19.9083 19.0539C11.1627 25.2438 34.7856 48.8076 40.9518 40.0968C44.1294 35.6073 39.5331 35.0538 35.427 33.4926C31.3212 31.9314 32.3691 36.8262 32.3691 36.8262L23.1795 27.6363Z"
+          fill="black" />
+      </svg>
+    </div>
+
+    <!-- Header  -->
+
+    <header class="header">
+      <div class="container">
+        <nav class="header_nav">
+          <div class="header_nav-logo">
+            <a href="/">
+              <img src="./assets/img/logo.svg" alt="ProStone" />
+            </a>
+          </div>
+
+          <ul class="header_nav-menu">
+            <li>
+              <a href="#choose"> Почему мы? </a>
+            </li>
+
+            <li>
+              <a href="#products"> Направления </a>
+            </li>
+
+            <li>
+              <a href="#projects"> Проекты </a>
+            </li>
+
+            <li>
+              <a href="#footer"> Контакты </a>
+            </li>
+
+            <li class="header_nav-menu_call">
+              <a href="tel:+" class="feedback-open"> Заказать звонок </a>
+            </li>
+          </ul>
+
+          <ul class="header_nav-social">
+            <li>
+              <a href="#" target="_blank">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M21.228 4.40213L18.2101 18.6343C17.9823 19.6386 17.3887 19.8886 16.5451 19.4157L11.9466 16.0271L9.72799 18.1614C9.48228 18.4071 9.27728 18.6121 8.80371 18.6121L9.13442 13.9293L17.6566 6.22856C18.0273 5.89856 17.5759 5.71499 17.0809 6.04571L6.54514 12.68L2.00942 11.26C1.02299 10.9521 1.00514 10.2736 2.21514 9.79999L19.9559 2.96499C20.7773 2.65713 21.4959 3.14785 21.228 4.40285V4.40213Z"
+                    fill="black" />
+                </svg>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" target="_blank">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M20.942 8.31279C20.9319 7.557 20.7902 6.80874 20.5232 6.10145C20.2917 5.50486 19.938 4.96305 19.4848 4.51064C19.0317 4.05823 18.489 3.70516 17.8914 3.474C17.192 3.21191 16.4532 3.07019 15.7064 3.05488C14.7448 3.01197 14.4399 3 11.999 3C9.55809 3 9.24522 3 8.29065 3.05488C7.54414 3.07031 6.80566 3.21202 6.10662 3.474C5.50894 3.705 4.96615 4.05801 4.51296 4.51044C4.05977 4.96288 3.70618 5.50477 3.47479 6.10145C3.21174 6.79911 3.07009 7.53653 3.05598 8.28185C3.01299 9.24282 3 9.54718 3 11.984C3 14.4209 3 14.7322 3.05598 15.6862C3.07097 16.4326 3.21191 17.1691 3.47479 17.8686C3.70656 18.4651 4.06042 19.0068 4.51376 19.459C4.9671 19.9113 5.50995 20.2641 6.10762 20.4951C6.80474 20.7677 7.54335 20.9196 8.29165 20.9441C9.25422 20.987 9.55909 21 12 21C14.4409 21 14.7538 21 15.7084 20.9441C16.4552 20.9294 17.1941 20.788 17.8934 20.526C18.4908 20.2946 19.0334 19.9414 19.4865 19.489C19.9396 19.0367 20.2934 18.495 20.5252 17.8985C20.7881 17.2 20.929 16.4636 20.944 15.7162C20.987 14.7562 21 14.4518 21 12.014C20.998 9.57712 20.998 9.26777 20.942 8.31279ZM11.993 16.5923C9.44014 16.5923 7.37206 14.5277 7.37206 11.979C7.37206 9.43043 9.44014 7.36578 11.993 7.36578C13.2186 7.36578 14.3939 7.85182 15.2605 8.71698C16.1271 9.58213 16.614 10.7555 16.614 11.979C16.614 13.2026 16.1271 14.376 15.2605 15.2411C14.3939 16.1063 13.2186 16.5923 11.993 16.5923ZM16.7979 8.27087C16.2011 8.27087 15.7203 7.78989 15.7203 7.19514C15.7203 7.05394 15.7482 6.91412 15.8023 6.78367C15.8565 6.65322 15.9358 6.53469 16.0358 6.43484C16.1358 6.335 16.2545 6.2558 16.3852 6.20176C16.5159 6.14773 16.6559 6.11991 16.7974 6.11991C16.9388 6.11991 17.0789 6.14773 17.2095 6.20176C17.3402 6.2558 17.4589 6.335 17.5589 6.43484C17.6589 6.53469 17.7383 6.65322 17.7924 6.78367C17.8465 6.91412 17.8744 7.05394 17.8744 7.19514C17.8744 7.78989 17.3926 8.27087 16.7979 8.27087Z"
+                    fill="black" />
+                  <path
+                    d="M11.993 14.9757C13.6508 14.9757 14.9947 13.6341 14.9947 11.979C14.9947 10.324 13.6508 8.98237 11.993 8.98237C10.3352 8.98237 8.99134 10.324 8.99134 11.979C8.99134 13.6341 10.3352 14.9757 11.993 14.9757Z"
+                    fill="black" />
+                </svg>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" target="_blank">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M17.4286 3.51377C17.4286 3.37911 17.3738 3.24995 17.2764 3.15473C17.179 3.0595 17.0469 3.006 16.9091 3.006H14.3117C13.0038 2.94232 11.7232 3.38723 10.7498 4.24352C9.77646 5.09981 9.18939 6.29787 9.11688 7.57593V10.3179H6.51948C6.38171 10.3179 6.24957 10.3714 6.15215 10.4666C6.05473 10.5618 6 10.691 6 10.8257V13.4661C6 13.6007 6.05473 13.7299 6.15215 13.8251C6.24957 13.9203 6.38171 13.9738 6.51948 13.9738H9.11688V20.7779C9.11688 20.9126 9.17161 21.0418 9.26904 21.137C9.36646 21.2322 9.49859 21.2857 9.63636 21.2857H12.7532C12.891 21.2857 13.0232 21.2322 13.1206 21.137C13.218 21.0418 13.2727 20.9126 13.2727 20.7779V13.9738H15.9948C16.1103 13.9755 16.2231 13.9394 16.3153 13.8713C16.4075 13.8033 16.4739 13.7071 16.5039 13.5981L17.2519 10.9577C17.2726 10.8827 17.2754 10.804 17.2601 10.7278C17.2447 10.6515 17.2117 10.5797 17.1635 10.5179C17.1154 10.4561 17.0533 10.4059 16.9822 10.3713C16.9111 10.3366 16.8327 10.3183 16.7532 10.3179H13.2727V7.57593C13.2986 7.32456 13.4193 7.09163 13.6115 6.92263C13.8036 6.75362 14.0532 6.66068 14.3117 6.66195H16.9091C17.0469 6.66195 17.179 6.60845 17.2764 6.51322C17.3738 6.418 17.4286 6.28885 17.4286 6.15418V3.51377Z"
+                    fill="black" />
+                </svg>
+              </a>
+            </li>
+
+            <li class="header-mobile">
+              <a href="tel:+" target="_blank" class="feedback-open">
+                <svg
+                  width="23"
+                  height="23"
+                  viewBox="0 0 23 23"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M6.3749 9.62764C6.3749 9.62764 10.1043 10.426 8.91432 7.29781C7.72507 4.16935 7.30358 0.667408 3.88255 3.08867C-2.78076 7.80478 15.2176 25.7581 19.9157 19.1213C22.3367 15.7008 18.8348 15.2791 15.7063 14.0896C12.5781 12.9001 13.3765 16.6295 13.3765 16.6295L6.3749 9.62764Z"
+                    fill="black" />
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main  -->
+
+    <section class="hero">
+      <div class="container">
+        <div class="hero_content">
+          <h1 class="section_title">
+            Изготовления столешниц <br />
+            из <strong>КВАРЦА</strong> и <strong>АКРИЛА</strong> под ключ
+          </h1>
+
+          <ul class="hero_content-list">
+            <li>Гарантия 3 года</li>
+            <li>На 15-30% дешевле, чем в салонах</li>
+            <li>Гибкие условия оплаты</li>
+            <li>Установка в день доставки</li>
+          </ul>
+
+          <div class="hero_content-btns">
+            <a href="#" target="_blank"> Рассчитать стоимость </a>
+
+            <a href="tel:+998(90) 347 01 00" class="contact-tel">
+              <svg
+                width="25"
+                height="25"
+                viewBox="0 0 25 25"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M6.81622 10.5302C6.81622 10.5302 10.8952 11.4035 9.59372 7.98198C8.29297 4.56023 7.83197 0.729978 4.09022 3.37823C-3.19778 8.53648 16.488 28.173 21.6265 20.914C24.2745 17.1727 20.4442 16.7115 17.0225 15.4105C13.601 14.1095 14.4742 18.1885 14.4742 18.1885L6.81622 10.5302Z"
+                  fill="white" />
+              </svg>
+              +998(90) 347 01 00
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Choose -->
+
+    <section class="choose" id="choose">
+      <div class="container">
+        <div class="choose-wrap">
+          <h2 class="section-title">
+            За что нас <strong>выбирают</strong>?
+          </h2>
+
+          <div class="choose_content">
+            	
+            <div class="choose_content-item">
+              <div class="choose_content-item__title">
+                Цены производителя
+              </div>
+              <p class="choose_content-item__text">
+                Не переплачивайте посредникам!
+              </p>
+              <div class="choose_content-item_icon">
+                <img src="./assets/img/choose1.svg" alt="ico">
+              </div>
+            </div>
+            
+            <div class="choose_content-item">
+              <div class="choose_content-item__title">
+                Гарантии и сервисы
+              </div>
+              <p class="choose_content-item__text">
+                Замер бесплатно. Гарантии 3 года.
+              </p>
+              <div class="choose_content-item_icon">
+                <img src="./assets/img/choose2.svg" alt="ico">
+              </div>
+            </div>
+
+            <div class="choose_content-item">
+              <div class="choose_content-item__title">
+                Сертификаты
+              </div>
+
+              <p class="choose_content-item__text">
+                Международные стандарты камня
+              </p>
+
+              <div class="choose_content-item_icon">
+                <img src="./assets/img/choose3.svg" alt="ico">
+              </div>
+
+            </div>
+
+            <div class="choose_content-item">
+              <div class="choose_content-item__title">
+                10 лет в отрасли!
+              </div>
+              <p class="choose_content-item__text">
+                Делаем профессионально!
+              </p>
+              <div class="choose_content-item_icon">
+                <img src="./assets/img/choose4.svg" alt="ico">
+              </div>
+            </div>
+
+          </div>
+
+
+        </div>
+      </div>
+    </section>
+
+   
+
+    <!-- Products  -->
+
+    <section class="products" id="products">
+      <div class="container">
+
+        <h2 class="products-title section-title">
+          НАША <strong>ВЫСОКОКАЧЕСТВЕННАЯ <br> ПРОДУКЦИЯ</strong>
+        </h2>
+  
+        <div class="products-content">
+  
+          <div class="products-content_item products-content_item-big">
+            <div class="products-content_item__img">
+              <img src="./assets/img/product1.jpg" alt="product" />
+            </div>
+            <div class="products-content_item__name">Столешницы для кухни</div>
+            <a href="#" class="products-content_item__btn feedback-open">
+              Узнать цену
+            </a>
+          </div>
+  
+          <div class="products-content_item ">
+            <div class="products-content_item__img">
+              <img src="./assets/img/product2.jpg" alt="product" />
+            </div>
+            <div class="products-content_item__name">Столешницы для ванной</div>
+            <a href="#" class="products-content_item__btn feedback-open">
+              Узнать цену
+            </a>
+          </div>
+  
+          <div class="products-content_item ">
+            <div class="products-content_item__img">
+              <img src="./assets/img/product3.jpg" alt="product" />
+            </div>
+            <div class="products-content_item__name">Подоконники</div>
+            <a href="#" class="products-content_item__btn feedback-open">
+              Узнать цену
+            </a>
+          </div>
+  
+          <div class="products-content_item ">
+            <div class="products-content_item__img">
+              <img src="./assets/img/product4.jpg" alt="product" />
+            </div>
+            <div class="products-content_item__name">Барные стойки</div>
+            <a href="#" class="products-content_item__btn feedback-open">
+              Узнать цену
+            </a>
+          </div>
+  
+          <div class="products-content_item ">
+            <div class="products-content_item__img">
+              <img src="./assets/img/product5.jpg" alt="product" />
+            </div>
+            <div class="products-content_item__name">Мойки и раковины</div>
+            <a href="#" class="products-content_item__btn feedback-open">
+              Узнать цену
+            </a>
+          </div>
+  
+          <div class="products-content_item products-content_item-big">
+            <div class="products-content_item__img">
+              <img src="./assets/img/product6.jpg" alt="product" />
+            </div>
+            <div class="products-content_item__name">Стеновые панели/фартуки</div>
+            <a href="#" class="products-content_item__btn feedback-open">
+              Узнать цену
+            </a>
+          </div>
+  
+          <div class="products-content_item products-content_item-big">
+            <div class="products-content_item__img">
+              <img src="./assets/img/product7.jpg" alt="product" />
+            </div>
+            <div class="products-content_item__name">Столы</div>
+            <a href="#" class="products-content_item__btn feedback-open">
+              Узнать цену
+            </a>
+          </div>
+  
+          <div class="products-content_item ">
+            <div class="products-content_item__img">
+              <img src="./assets/img/product8.jpg" alt="product" />
+            </div>
+            <div class="products-content_item__name">Лестницы / ступени</div>
+            <a href="#" class="products-content_item__btn feedback-open">
+              Узнать цену
+            </a>
+          </div>
+  
+          <div class="products-content_item">
+            <div class="products-content_item__img">
+              <img src="./assets/img/product9.jpg" alt="product" />
+            </div>
+  
+            <div class="products-content_item__name">Стойки-ресепшн</div>
+  
+            <a href="#" class="products-content_item__btn feedback-open">
+              Узнать цену
+            </a>
+          </div>
+  
+  
+        </div>
+
+      </div>
+    </section>
+
+     <!-- Guarants -->
+     <section class="guarants">
+      guarants
+    </section>
+
+
+    <!-- Projects -->
+    
+    <section class="projects" id="projects">
+      projects
+    </section>
+
+
+
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    <script src="./js/jquery.inputmask.min.js"></script>
+    <script src="./js/owl.carousel.js"></script>
+    <script
+      src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"
+      type="text/javascript"></script>
+    <script src="./js/map.js"></script>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
+

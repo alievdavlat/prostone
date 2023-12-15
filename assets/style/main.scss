@@ -1,0 +1,639 @@
+//___________COLORS____________
+
+$brown: #B7875B;
+$yellow: #FFC700;
+
+//___________FONTS____________
+
+
+@font-face {
+    font-family: 'Euclid Square';
+    src: url('../fonts/EuclidSquare-SemiBold.eot');
+    src: local('Euclid Square SemiBold'), local('../fonts/EuclidSquare-SemiBold'),
+        url('../fonts/EuclidSquare-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/EuclidSquare-SemiBold.woff2') format('woff2'),
+        url('../fonts/EuclidSquare-SemiBold.woff') format('woff'),
+        url('../fonts/EuclidSquare-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Euclid Square';
+    src: url('../fonts/EuclidSquare-Medium.eot');
+    src: local('Euclid Square Medium'), local('../fonts/EuclidSquare-Medium'),
+        url('../fonts/EuclidSquare-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/EuclidSquare-Medium.woff2') format('woff2'),
+        url('../fonts/EuclidSquare-Medium.woff') format('woff'),
+        url('../fonts/EuclidSquare-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Euclid Square';
+    src: url('../fonts/EuclidSquare-Regular.eot');
+    src: local('Euclid Square Regular'), local('../fonts/EuclidSquare-Regular'),
+        url('../fonts/EuclidSquare-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/EuclidSquare-Regular.woff2') format('woff2'),
+        url('../fonts/EuclidSquare-Regular.woff') format('woff'),
+        url('../fonts/EuclidSquare-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Euclid Square';
+    src: url('../fonts/EuclidSquare-Light.eot');
+    src: local('Euclid Square Light'), local('../fonts/EuclidSquare-Light'),
+        url('../fonts/EuclidSquare-Light.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/EuclidSquare-Light.woff2') format('woff2'),
+        url('../fonts/EuclidSquare-Light.woff') format('woff'),
+        url('../fonts/EuclidSquare-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+
+//___________MIXINS____________
+
+@mixin center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+
+@mixin trans {
+	transition: .4s all;
+}
+
+@mixin btn {
+	border: none;
+	outline: none;
+}
+
+
+//___________COMMOM____________
+
+
+:root {
+	font-size: 20px;
+}
+
+
+ul,li {
+	margin: 0;
+	padding: 0;
+	display: block;
+}
+
+a {
+	transition: .3s all;
+	outline: none;
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+h1, h2, h3, h4, h5, p {
+	margin: 0;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: 'Euclid Square';
+	margin-top: 4rem;
+}
+
+strong {
+	font-weight: 600;
+}
+
+
+.section-title {
+	text-transform: uppercase;
+	font-weight: 400;
+	font-size: 2.2rem;
+	line-height: 130%;
+	text-align: center;
+	margin-bottom: 5rem;
+	position: relative;
+
+	strong {
+		font-weight: 600;
+	}
+
+}
+
+
+.hidden {
+  display: none !important;
+}
+
+
+.container {
+	width: 100%;
+	max-width: 70rem;
+}
+
+
+// ______ Tel Btn _________
+
+.tel-btn {
+	position: fixed;
+	z-index: 10;
+	bottom: 12vh;
+	right: 5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	animation: pulse-yellow 2s infinite;
+	box-shadow: 0 0 0 0 rgba(255, 199, 0, .3);
+	cursor: pointer;
+
+	svg {
+		width: 3rem;
+		height: 3rem;
+	}
+}
+
+
+@keyframes pulse-yellow {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(255, 199, 0, .3);
+	}
+	
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 1rem rgba(255, 121, 63, 0);
+	}
+	
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(255, 121, 63, 0);
+	}
+}
+
+// _________ header _________
+
+.header {
+	padding: 1rem 0;
+	background: #fff;
+	position: fixed;
+	z-index: 10;
+	left: 0;
+	top: 0;
+	width: 100%;
+	box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.25);
+
+	&-mobile {
+		display: none;
+	}
+
+	&_nav{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		&-logo{
+			a {
+				display: block;
+
+				img {
+					display: block;
+					width: 8.25rem;
+				}
+			}
+		}
+
+		&-menu {
+			display: flex;
+			align-items: center;
+
+			li {
+				margin-right: 2rem;
+	
+	
+				a {
+					font-size: 0.9rem;
+					color: #808080;
+					font-weight: 300;
+	
+					&:hover {
+						color: #000;
+					}
+				}
+			}
+
+			li.header_nav-menu_call{
+				margin-right: 0;
+				margin-left: 3rem;
+
+				a {
+					font-weight: 500;
+					color: $brown;
+				}
+			}
+		}
+
+		&-social{
+			display: flex;
+			li {
+				margin-right: 1rem;
+	
+				&:last-child {
+					margin-right: 0;
+				}
+	
+				a {
+					@include center();
+					width: 2rem;
+					height: 2rem;
+					border-radius: 50%;
+					background: #F3F3F3;
+	
+					&:hover {
+						background: $brown;
+	
+						svg path {
+							fill: #fff;
+						}
+					}
+	
+					svg {
+						width: 1.2rem;
+					}
+				}
+			}
+		}
+
+	}
+}
+
+//______ Hero _______
+
+
+.hero {
+	background-image: url('../img/main.jpg');
+	height: 40rem;
+	background-size: cover;
+	display: flex;
+	align-items: center;
+	color: #fff;
+
+	&_content{
+
+		h1{
+			font-weight: 300;
+			font-size: 2.8rem;
+			line-height: 150%;
+			margin-bottom: 3rem;
+	
+			strong {
+				font-weight: 500;
+			}
+	
+		}
+
+	&-list {
+		display: flex;
+		flex-wrap: wrap;
+		margin-bottom: 3rem;
+		li{
+			display: flex;
+			align-items: center;
+			position: relative;
+			width: 35%;
+			margin-bottom: 1rem;
+			font-size: 1.2rem;
+
+			&::before {
+				content: '';
+				width: 1.75rem;
+				height: 1.75rem;
+				background: url(../img/check.svg) center center no-repeat;
+				background-size: contain;
+				margin-right: 0.75rem;
+			}
+		}
+	}
+
+	&-btns {
+		display: flex;
+		align-items: center;
+
+		a{
+			@include btn();
+			width: 17rem;
+			height: 3.5rem;
+			font-weight: 500;
+			font-size: 1.1rem;
+			background: #000;
+			color: #fff;
+			border-radius: .5rem;
+			@include center();
+			
+			&:hover {
+				background: #fff;
+				color: #000;
+			}
+		}
+		
+		 a.contact-tel{
+				margin-left: 2rem;
+				background: $brown;
+				color: white;
+				height: 3.1rem;
+				svg {
+					width: 1.25rem;
+					margin-right: .5rem;
+				}
+
+				&:hover {
+					background: #000;
+					color: #fff;
+				}
+		 }
+	}
+	}
+
+
+}
+
+
+//  ___ Choose _____
+
+.choose{
+margin-top: 5rem;
+
+&-wrap{
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+
+}	
+
+
+&_content{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-bottom: 3rem;
+
+	&-item {
+		width: 15rem;
+		height: 11.25rem;
+		padding: 2rem 2rem 5rem;
+		margin-right: 2rem;
+		border-radius: 1rem;
+		background: #F8F8F8;
+		position: relative;
+		@include trans();
+		overflow: hidden;
+
+		&:nth-child(4n) {
+			margin-right: 0;
+		}
+
+		&:hover {
+			box-shadow: 0px 100px 80px rgba(0, 0, 0, 0.07), 0px 64.8148px 46.8519px rgba(0, 0, 0, 0.0531481), 0px 38.5185px 25.4815px rgba(0, 0, 0, 0.0425185), 0px 20px 13px rgba(0, 0, 0, 0.035), 0px 8.14815px 6.51852px rgba(0, 0, 0, 0.0274815), 0px 1.85185px 3.14815px rgba(0, 0, 0, 0.0168519);
+
+			.choose_content-item_icon {
+				background: #000;
+			}
+		}
+
+
+		&__title{
+			font-size: 1.1rem;
+			font-weight: 600;
+			margin-bottom: 1rem;
+		}
+
+		&__text{
+			line-height: 150%;
+			font-weight: 300;
+		}
+
+		&_icon{
+			border-radius: 1rem 0;
+			padding: .85rem 1rem;
+			@include trans();
+			background: $brown;
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			@include center();
+
+			img {
+				width: 2rem;
+			}
+		}
+	}
+}
+
+
+}
+
+
+// ____ Products _____
+
+.products{
+	margin-top: 7.5rem;
+
+	&-title{
+		margin-bottom: 4rem;
+	}
+
+	&-content{
+		display: flex;
+		flex-wrap: wrap;
+		margin-bottom: 3rem;
+		gap: 2rem;
+		&_item {
+			width: 15rem;
+			height: 18.05rem;
+			border-radius: 1rem 1rem 3rem 1rem;
+			overflow: hidden;
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+			padding: 2rem 1.5rem;
+			color: #fff;
+			@include trans();
+
+
+			&__name {
+			width: 100%;
+			z-index: 1000;
+			font-size: 0.9rem;
+			font-weight: 500;
+			}
+
+			&__btn{
+				display:none;
+				position: relative;
+				z-index: 1000;
+				font-weight: 500;
+				font-size: 0.75rem;
+				color: #000;
+				background: $yellow;
+				margin-top: 1.5rem;
+				width: 6.5rem;
+				height: 1.75rem;
+				border-radius: .25rem;	
+
+	
+				&:hover {
+					background: #000;
+					color: #fff;
+				}
+			}
+			
+			&::after {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				content: '';
+				background: linear-gradient(360deg, rgba(0, 0, 0, 0.8) 3.79%, rgba(3, 3, 3, 0.3) 38.14%, rgba(0, 0, 0, 0) 68.97%);
+			}
+			&:hover .products-content_item__btn{
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
+			&:hover {
+				box-shadow: 0px 100px 80px rgba(0, 0, 0, 0.07), 0px 64.8148px 46.8519px rgba(0, 0, 0, 0.0531481), 0px 38.5185px 25.4815px rgba(0, 0, 0, 0.0425185), 0px 20px 13px rgba(0, 0, 0, 0.035), 0px 8.14815px 6.51852px rgba(0, 0, 0, 0.0274815), 0px 1.85185px 3.14815px rgba(0, 0, 0, 0.0168519);
+	
+				
+				&::after {
+					background: linear-gradient(360deg, #B7875B 3.79%, rgba(167, 96, 57, 0.5) 38.14%, rgba(183, 135, 91, 0) 68.97%);
+				}
+			}
+
+			&:nth-child(3n) {
+				margin-right: 0;
+			}
+
+
+
+			&__img{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 0;
+
+			img{
+			  width: 100%;
+				height: 100%;
+				display: block;
+				object-fit: cover;
+				}
+			}
+		}
+
+		&_item-big {
+			width: 49%;
+		}
+	}
+
+}
+
+
+//_____________MEDIA QUERY__________
+
+
+
+@media (max-width: 1700.98px) {
+
+	:root {
+		font-size: 19px;
+	}
+
+}
+
+@media (max-width: 1550.98px) {
+
+	:root {
+		font-size: 18px;
+	}
+
+}
+
+
+
+@media (max-width: 1400.98px) {
+
+	:root {
+		font-size: 17px;
+	}
+
+}
+
+
+@media (max-width: 1200.98px) {
+
+	:root {
+		font-size: 15px;
+	}
+
+
+	// style
+
+
+}
+
+@media (max-width: 992.98px) {
+
+	:root {
+		font-size: 13px;
+	}
+}
+
+
+@media (max-width: 767.98px), (max-width: 1080px) and (orientation: portrait) {
+	:root {
+		font-size: 18px;
+	}
+// style
+
+}
+
+
+@media (max-width: 767.98px) {
+	:root {
+		font-size: 16px;
+	}
+  //  style
+}
+
+
+@media (max-width: 343.98px) {
+	:root {
+		font-size: 12px;
+	}
+}
+
+
+@media (max-width: 300.98px) {
+	:root {
+		font-size: 10px;
+	}
+}
