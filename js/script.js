@@ -1,36 +1,33 @@
 // owl corusel 
+// $('.projects-carousel').owlCarousel({
+//   dots: true,
+//   nav: false,
+//   loop: true,
+//   autoplay:true,
+//   smartSpeed: 700,
+//   responsive: {
+//       0: {
+//           items: 1,
+//           stagePadding: 35,
+//           margin: 20
+//       },
 
-$('.projects-carousel').owlCarousel({
-  dots: true,
-  nav: false,
-  loop: true,
-  autoplay:true,
-  smartSpeed: 700,
-  responsive: {
-      0: {
-          items: 1,
-          stagePadding: 35,
-          margin: 20
-      },
-
-      700: {
-          items: 2,
-          margin: 30,
-      },
-  }
-})
-
+//       700: {
+//           items: 2,
+//           margin: 30,
+//       },
+//   }
+// })
 
 
-$('.projects .arrow-left').click(() => {
-  $('.projects-carousel').trigger('prev.owl.carousel', [700]);
+// $('.projects .arrow-left').click(() => {
+//   $('.projects-carousel').trigger('prev.owl.carousel', [700]);
 
-})
+// })
 
-$('.projects .arrow-right').click(() => {
-  $('.projects-carousel').trigger('next.owl.carousel', [700]);
-})
-
+// $('.projects .arrow-right').click(() => {
+//   $('.projects-carousel').trigger('next.owl.carousel', [700]);
+// })
 
 // review corusel
 
@@ -71,7 +68,6 @@ footerScrollTop.addEventListener('click', () => {
 
 
 // feedback open
-
 feedBackOpenBtns.forEach(item => {
 
   item.addEventListener('click', (e) => {
@@ -214,66 +210,15 @@ feedbackForm.addEventListener('submit', (e) => {
 
 // rooots 
 
-const projects = document.querySelector('.projects')
-const products = document.querySelector('.products')
+const projects = document.querySelector('.projects-content_inner')
+const products = document.querySelector('.products-content')
 const reviews = document.querySelector('.reviews')
-
+const partners = document.querySelector('.partners')
+const chosess = document.querySelector('.choose_content')
 
 // rendering dynamic items 
 
-function render  (data , root , template )  {
-  data.forEach(item => {
-    root.innerHTML += template(item)
-  })
-}
 
-let ProjectItem = `
-<div class="projects-content_item">
-
-                    <div class="projects-content_item__img">
-                      <img src="./assets/img/projects1.jpg" alt="ico">
-                    </div>
-                    
-                    <div class="projects-content_item__header">
-
-                      <div class="projects-content_item__header-location">
-                        г.Ташкент
-                      </div>
-
-                      <div class="projects-content_item__header-zoom">
-                        <img src="./assets/img//zoom.svg" alt="zoom-image">
-                      </div>
-
-                    </div>
-
-                    <h3 class="projects-content_item__name">
-                      Cтолешница для кухни из акрилового камня 
-                    </h3>
-
-                    <ul class="projects-content_item__list">
-                      <li>
-                        <span>Материал:</span>
-                        <span>Samsung Radianz</span>
-                      </li>
-                      <li>
-                        <span>Цвет камня:</span>
-                        <span>Toluca Sand</span>
-                      </li>
-                      <li>
-                        <span>Площадь:</span>
-                        <span>3000*600 мм</span>
-                      </li>
-                      <li>
-                        <span>Год:</span>
-                        <span>2022</span>
-                      </li>
-                    </ul>
-
-                    <a href="#" class="projects-content_item__btn feedback-open">
-                      Хочу также
-                    </a>
-                  </div>
-`
 
 let ProductsItem = `
 <div class="products-content_item products-content_item-big">
@@ -330,21 +275,446 @@ let reviewsItem = `
             </div>
 `
 
-
-  const getData = async (url, rootElem, temp) =>  {
-    const request = await fetch(`process.env.Base_url${url}`)
-    const data = request.json()
-    render(data, rootElem, temp)
-  }
-
-  getData('/', projects,ProjectItem)
-  getData('/', reviews, reviewsItem)
-  getData('/', products, ProductsItem)
+let partnerItem = `
+<div class="partners-item">
+<img src="./assets/img/partners1.png" alt="partners">
+</div>
+`
 
 
+//choose rendiring
+
+function renderChosess  (data)  {
+    // 
+
+  data.forEach(item => {
+    chosess.innerHTML += `
+           <div class="choose_content-item">
+              <div class="choose_content-item__title">
+                ${item?.attributes?.title}
+              </div>
+              <p class="choose_content-item__text">
+                ${item?.attributes?.description}
+              </p>
+              <div class="choose_content-item_icon">
+                <img src="http://localhost:1337${item?.attributes?.icon?.data?.attributes?.url}}" alt="ico">
+              </div>
+            </div>
+    `
+
+  })
+}
+
+const getchooses = async (url) =>  {
+    const request = await fetch(`http://localhost:1337/api${url}`)
+    const data =  await request.json()
+    renderChosess(data?.data);
+}
+getchooses('/chooses?populate=*')
+
+
+// products renering 
+function renderProducts  (data)  {
+
+
+    data.forEach(item => {
+    if (item?.id === 1 || item.id === 6 || item.id === 7) {
+    products.innerHTML += `
+    <div class="products-content_item products-content_item-big">
+    <div class="products-content_item__img">
+    <img src="http://localhost:1337${item?.attributes?.image?.data?.attributes?.url}" alt="product" />
+    </div>
+    <div class="products-content_item__name">${item?.attributes?.title}</div>
+    <a href="#" class="products-content_item__btn feedback-open">
+      Узнать цену
+    </a>
+</div>`
+    } else {
+      products.innerHTML += `
+    <div class="products-content_item">
+    <div class="products-content_item__img">
+      <img src="http://localhost:1337${item?.attributes?.image?.data?.attributes?.url}" alt="product" />
+    </div>
+    <div class="products-content_item__name">${item?.attributes?.title}</div>
+    <a href="#" class="products-content_item__btn feedback-open">
+      Узнать цену
+    </a>
+</div>`
+    }
+
+})
+
+
+}
+const getProducts = async (url) =>  {
+  const request = await fetch(`http://localhost:1337/api${url}`)
+  const data =  await request.json()
+  renderProducts(data?.data);
+}
+getProducts('/products?populate=*')
+
+
+// render projects 
+
+// function renderProjects (data)  {
+//   data.forEach(item => {
+//     projects.innerHTML += `
+//                    <div class="projects-content_item">
+    
+//                         <div class="projects-content_item__img">
+//                           <img src="http://localhost:1337${item?.attributes?.image?.data?.attributes?.url}" alt="ico">
+//                         </div>
+                        
+//                         <div class="projects-content_item__header">
+    
+//                           <div class="projects-content_item__header-location">
+//                             ${item?.attributes?.address}
+//                           </div>
+    
+//                           <div class="projects-content_item__header-zoom">
+//                             <img src="./assets/img/zoom.svg" alt="zoom-image">
+//                           </div>
+    
+//                         </div>
+    
+//                         <h3 class="projects-content_item__name">
+//                         ${item?.attributes?.title}
+//                         </h3>
+    
+//                         <ul class="projects-content_item__list">
+//                           <li>
+//                             <span>Материал:</span>
+//                             <span>${item?.attributes?.material}</span>
+//                           </li>
+//                           <li>
+//                             <span>Цвет камня:</span>
+//                             <span>${item?.attributes?.color}</span>
+//                           </li>
+//                           <li>
+//                             <span>Площадь:</span>
+//                             <span>${item?.attributes?.size}</span>
+//                           </li>
+//                           <li>
+//                             <span>Год:</span>
+//                             <span>${item?.attributes?.year}</span>
+//                           </li>
+//                         </ul>
+    
+//                         <a href="#" class="projects-content_item__btn feedback-open">
+//                           Хочу также
+//                         </a>
+//                       </div>
+//     `
+
+   
+// }
+
+// )
+// }
+// const getProjects = async (url) =>  {
+//   const request = await fetch(`http://localhost:1337/api${url}`)
+//   const data =  await request.json()
+//     renderProjects(data?.data);
+// }
+// getProjects('/projects?populate=*')
+
+
+
+// hero rendering
+const getHero = async () => {
+
+  const request = await fetch(`http://localhost:1337/api/hero?populate=*`)
+
+  const heroData = await request.json()
+
+
+  const heroBg = document.querySelector('.hero')
+  const heroServices = document.querySelector('.hero_content-list')
+  const heroTitle = document.querySelector('.hero_content h1')
+
+  heroTitle.innerHTML = `${heroData.data.attributes?.title.slice(0, 23)} <br/>  ${heroData.data.attributes?.title.slice(23, 25)}
+  <strong>${heroData.data.attributes?.title.slice(25, 33)}</strong>
+  ${heroData.data.attributes?.title.slice(33, 35)}
+  <strong>${heroData.data.attributes?.title.slice(35, 42)}</strong>
+  ${heroData.data.attributes?.title.slice(42)}
+  `
+
+  heroBg.style.backgroundImage = `url(http://localhost:1337${heroData?.data?.attributes?.background?.data?.attributes?.url})`
+  heroData.data.attributes?.hero_advantages?.hero_advantages.forEach((item) => {
+    heroServices.innerHTML += `
+    <li>${item}</li>
+    `
+  })
+
+
+
+}
+getHero()
+
+
+// sections titles rendering
+const getSectionTitles = async() =>  {
+
+  const request = await fetch(`http://localhost:1337/api/section-title`)
+
+  const heroData = await request.json()
+
+
+  const chooseTitle = document.querySelector('.choose-title')
+  const projectsTitle = document.querySelector('.projects-title')
+  const partnerTitle = document.querySelector('.partners-title')
+  const productTitle = document.querySelector('.products-title')
+  const reviewTitle = document.querySelector('.reviews-title')
+
+
+  chooseTitle.innerHTML = `${heroData?.data?.attributes?.chooseTitle.slice(0, 10)}
+    <strong>${heroData?.data?.attributes?.chooseTitle.slice(10)}</strong>`
+
+  productTitle.innerHTML = `
+  ${heroData?.data?.attributes?.productsTitle.slice(0,5)}
+    <strong>${heroData?.data?.attributes?.productsTitle.slice(5, 24)} <br/>
+    ${heroData?.data?.attributes?.productsTitle.slice(24)} </strong>`
+
+  partnerTitle.innerHTML = `${heroData?.data?.attributes?.partnersTitle.slice(0, 4)} 
+  <strong>${heroData?.data?.attributes?.partnersTitle.slice(4, 14)}</strong>
+  <span>${heroData?.data?.attributes?.partnersTitle.slice(14)}</span>
+  `
+
+  reviewTitle.innerHTML = `${heroData?.data?.attributes?.reviewsTitle.slice(0, 13)} 
+  <strong>
+  ${heroData?.data?.attributes?.reviewsTitle.slice(13)}
+  </strong>
+  `
+
+  projectsTitle.innerHTML = `${heroData?.data?.attributes?.projectsTitle.slice(0, 5)}
+    <strong>
+    ${heroData?.data?.attributes?.projectsTitle.slice(5)}
+    </strong>
+  `
+
+}
+getSectionTitles()
+
+
+
+// /slider 
+    let offset = 0;
+    let slideIndex = 1;
+
+const slidesItem = document.querySelectorAll('.projects-content_item'),
+      nextBtn = document.querySelector('.projects .arrow-right'),
+      prevBtn = document.querySelector('.projects .arrow-left'),
+      sliderWrapper = document.querySelector('.projects-content'),
+      width = window.getComputedStyle(sliderWrapper).width,
+      slidesField = document.querySelector('.projects-content_inner')
+
+console.log(slidesItem);
+
+
+
+      
+    
+    slidesField.style.width = 100 * slidesItem.length + '%';
+    slidesField.style.display = 'flex';
+    slidesField.style.flexWrap = 'wrap'
+    slidesField.style.transition = '0.5s all';
+
+    sliderWrapper.style.overflow = 'hidden';
+
+    sliderWrapper.style.position = 'relative'
+
+    let indicator = document.createElement('ol'),
+        dots = []
+
+    indicator.style.cssText = `
+    position:absalute;
+    right:0;
+    bottom:0;
+    left:0;
+    z-index:15;
+    display:flex;
+    justify-content:center;
+    margin-right:15%;
+    margin-left:15%;
+    margin-top:3%;
+    list-style:none;
+
+    `
+    sliderWrapper.append(indicator)
+
+    sliderWrapper.append(indicator)
+
+    for (let i = 0; i < slidesItem.length; i++) {
+        const dot = document.createElement('li')
+        dot.setAttribute('data-slide-to',i + 1);
+        
+        dot.style.cssText = `
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 50%;
+        margin: 0 0.25rem;
+        cursor:pointer;
+        background: #D9D9D9 !important;
+        transition:opacity .6s ease;
+        `
+
+      if (i == 0) {
+        dot.style.background  = '#B7875B'
+        dot.style.width  = '1.8rem'
+        dot.style.borderRadius = '.5rem'
+      }
+
+      indicator.append(dot)
+      dots.push(dot)
+    }
+
+    slidesItem.forEach(slide => {
+      slide.style.width = width
+    
+    })
+
+    nextBtn.addEventListener('click', () => {
+      if (offset == (+width.slice(0, width.length - 2) * (slidesItem.length - 1))) {
+        offset = 0
+      } else{
+        offset += +width.slice(0,width.length - 2)
+      }
+      
+      if (slideIndex == slidesItem.length) {
+        slideIndex =1
+      } else{
+        slideIndex++
+      }
+      
+
+      
+        slidesField.style.transform = `translateX(-${offset}px)`
+
+        dots.forEach((item, index) => {
+          if (index == slideIndex - 1) {
+          item.style.background  = '#B7875B'
+          item.style.width  = '1.8rem'
+          item.style.borderRadius = '.5rem'
+          } else {
+            item.style.cssText = `
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 50%;
+            margin: 0 0.25rem;
+            cursor:pointer;
+            background: #D9D9D9 !important;
+            transition:opacity .6s ease;
+            `
+          }
+          
+        })
+       
+    })
+      
+      
+    prevBtn.addEventListener('click', () => {
+      if (offset == 0) {
+        offset = (+width.slice(0, width.length - 2) * (slidesItem.length - 1))
+      } else{
+        offset -= +width.slice(0,width.length - 2)
+      }
+      
+      if (slideIndex = 1) {
+        slideIndex = slidesItem.length
+      } else{
+        slideIndex--
+      }
+      
+      
+      
+      
+        slidesField.style.transform = `translateX(-${offset}px)`
+    })
+
+    dots.forEach((item, index) => {
+     
+      item.addEventListener('click', () => {
+        if (offset == (+width.slice(0, width.length - 2) * (slidesItem.length - 1))) {
+          offset = 0
+        } else{
+          offset += +width.slice(0,width.length - 2)
+        }
+        
+        if (slideIndex == slidesItem.length) {
+          slideIndex =1
+        } else{
+          slideIndex++
+        }
+        
   
+        
+          slidesField.style.transform = `translateX(-${offset}px)`
+  
+          dots.forEach((item, index) => {
+            if (index == slideIndex - 1) {
+            item.style.background  = '#B7875B'
+            item.style.width  = '1.8rem'
+            item.style.borderRadius = '.5rem'
+            } else {
+              item.style.cssText = `
+              width: 0.5rem;
+              height: 0.5rem;
+              border-radius: 50%;
+              margin: 0 0.25rem;
+              cursor:pointer;
+              background: #D9D9D9 !important;
+              transition:opacity .6s ease;
+              `
+            }
+            
+          })
+         
+      })
+      
+    })
 
+    function autoplaySlide(sec, isWork) {
+      if (isWork) {
+        
+      setInterval(() => {
+        if (offset == (+width.slice(0, width.length - 2) * (slidesItem.length - 1))) {
+          offset = 0
+        } else{
+          offset += +width.slice(0,width.length - 2)
+        }
+        
+        if (slideIndex == slidesItem.length) {
+          slideIndex =1
+        } else{
+          slideIndex++
+        }
+        
+  
+        
+          slidesField.style.transform = `translateX(-${offset}px)`
+  
+          dots.forEach((item, index) => {
+            if (index == slideIndex - 1) {
+            item.style.background  = '#B7875B'
+            item.style.width  = '1.8rem'
+            item.style.borderRadius = '.5rem'
+            } else {
+              item.style.cssText = `
+              width: 0.5rem;
+              height: 0.5rem;
+              border-radius: 50%;
+              margin: 0 0.25rem;
+              cursor:pointer;
+              background: #D9D9D9 !important;
+              transition:opacity .6s ease;
+              `
+            }
+            
+          })
+       
+      }, sec);
+    }
 
-
-
-
+    }
+    
+    autoplaySlide(2500, true)

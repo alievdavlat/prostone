@@ -186,6 +186,7 @@ strong {
 	justify-content: center;
 	position: relative;
 	z-index: 10;
+	top: 50%;
 
 	.owl-dot {
 		width: 0.5rem;
@@ -227,6 +228,7 @@ strong {
 .container {
 	width: 100%;
 	max-width: 70rem;
+	
 }
 
 //____ notefication _________
@@ -675,10 +677,11 @@ strong {
 
 
 .hero {
-	background-image: url('../img/main.jpg');
-	height: 40rem;
-	background-size: cover;
+	// background-image: url('../img/main.jpg');
+	height: 42rem !important;
+	background-size: 100%;
 	display: flex;
+	background-repeat: no-repeat;
 	align-items: center;
 	color: #fff;
 
@@ -1039,7 +1042,6 @@ flex-direction: column;
 	}
 
 	&-content{
-
 		.owl-stage-outer {
 			padding-bottom: 10rem;
 		}
@@ -1050,6 +1052,7 @@ flex-direction: column;
 
 		
 		&_item {
+			// width: 34rem !important ;
 			height: 20rem;
 			position: relative;
 			border-radius: 1rem;
@@ -1179,6 +1182,8 @@ flex-direction: column;
 
 
 	}
+
+
 }
 //_____ Reviews _____
 
