@@ -11,7 +11,7 @@ myMap.geoObjects
 .add(new ymaps.Placemark([41.22411341667512, 69.24052571733323], {
 }, {
     iconLayout: 'default#image',
-    iconImageHref: 'img/location.svg',
+    iconImageHref: '../assets/img/location.svg',
     iconImageSize: [60, 60],
 }))
 
